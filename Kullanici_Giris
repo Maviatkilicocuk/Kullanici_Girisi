@@ -1,0 +1,47 @@
+package Giris;
+import java.util.Scanner;
+
+public class Kullanici_Girisi {
+    public static void main(String[] args) {
+        String username, password, x1, x2;
+        int Deneme = 0;
+        boolean Giris = false;
+
+        Scanner inp = new Scanner(System.in);
+
+
+        System.out.print("Kullanmak istediğiniz kullanıcı adınızı giriniz: ");
+        username = inp.nextLine();
+
+        System.out.print("Kullanmak istediğiniz şifrenizi giriniz: ");
+        password = inp.nextLine();
+
+
+        while (Deneme < 5 && !Giris) {
+            System.out.print("Kullanıcı adınızı giriniz: ");
+            x1 = inp.nextLine();
+
+
+            if (username.equals(x1)) {
+                System.out.print("Şifrenizi giriniz: ");
+                x2 = inp.nextLine();
+
+
+                if (password.equals(x2)) {
+                    System.out.println("Başarıyla giriş yaptınız!");
+                    Giris = true;
+                } else {
+                    System.out.println("Hatalı şifre! Tekrar deneyin.");
+                    Deneme++;
+                }
+            } else {
+                System.out.println("Kullanıcı adınızı yanlış girdiniz. Tekrar deneyin.");
+                Deneme++;
+            }
+
+            if (Deneme == 5) {
+                System.out.println("5 kez hatalı giriş yaptınız. Hesabınız kilitlendi.");
+            }
+        }
+    }
+}
